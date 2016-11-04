@@ -44,7 +44,16 @@ public class Main {
 		return ene;
 	}
 	
-	@PUT
+	@POST
+	@Path("/enemy2")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Enemigo getEnemy2(Enemigo ene1){
+		Enemigo ene=new Enemigo(11,13,141,151,16);
+		return ene;
+	}
+	
+	@POST
 	@Path("/pobla")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
