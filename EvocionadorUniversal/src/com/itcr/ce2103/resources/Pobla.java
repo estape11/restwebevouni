@@ -1,7 +1,53 @@
 package com.itcr.ce2103.resources;
 
-public class Mutacion {
-	private Enemy ene[];
+public class Pobla {
+	Enemy[] ene;
+	
+	public Pobla(){}
+	
+	public void genPobla(int cantidad){//Genera la poblacion incial
+		this.ene=new Enemy[cantidad];
+		for(int i=0;i<this.ene.length;i++){
+			int especie=RandomNumbers.randInt(0,4); //Son las cuatro especies
+			if (especie==0){//Si es ogro
+				int vida=RandomNumbers.randInt(1,10);
+				int resisArtilleria=RandomNumbers.randInt(1,5);
+				int resisFlechas=RandomNumbers.randInt(5,10);
+				int resisMagia=RandomNumbers.randInt(1,5);
+				int velocidad=RandomNumbers.randInt(1,5);
+				Enemy enetmp=new Enemy(vida,velocidad, resisFlechas, resisMagia, resisArtilleria, especie);
+				this.ene[i]=enetmp;
+			}
+			else if(especie==1){//Si es elfo
+				int vida=RandomNumbers.randInt(1,10);
+				int resisArtilleria=RandomNumbers.randInt(1,5);
+				int resisFlechas=RandomNumbers.randInt(1,5);
+				int resisMagia=RandomNumbers.randInt(5,10);
+				int velocidad=RandomNumbers.randInt(5,10);
+				Enemy enetmp=new Enemy(vida,velocidad, resisFlechas, resisMagia, resisArtilleria, especie);
+				this.ene[i]=enetmp;
+			}
+			else if(especie==2){//Si es daniela, digo arpía
+				int vida=RandomNumbers.randInt(1,10);
+				int resisArtilleria=RandomNumbers.randInt(5,10); //Dice que no pueden ser atacadas por artilleria
+				int resisFlechas=RandomNumbers.randInt(1,10);
+				int resisMagia=RandomNumbers.randInt(1,10);
+				int velocidad=RandomNumbers.randInt(3,7);
+				Enemy enetmp=new Enemy(vida,velocidad, resisFlechas, resisMagia, resisArtilleria, especie);
+				this.ene[i]=enetmp;
+			}
+			else if(especie==3){//Si es mercenario
+				int vida=RandomNumbers.randInt(1,10);
+				int resisArtilleria=RandomNumbers.randInt(5,10);
+				int resisFlechas=RandomNumbers.randInt(5,10);
+				int resisMagia=RandomNumbers.randInt(1,5);
+				int velocidad=RandomNumbers.randInt(1,10);
+				Enemy enetmp=new Enemy(vida,velocidad, resisFlechas, resisMagia, resisArtilleria, especie);
+				this.ene[i]=enetmp;
+			}
+		}	
+	}
+	
 	public void genMutacion(Enemy enem1, Enemy enem2,Enemy enem3,Enemy enem4, int cantidad){ //Mejores fitness de cada especie
 		this.ene=new Enemy[cantidad];
 		for(int i=0;i<this.ene.length;i++){
@@ -44,5 +90,6 @@ public class Mutacion {
 			}
 		}
 	}
-	public Enemy[] getEne() {return ene;}
+	
+	public Enemy[] getEne(){return this.ene;}
 }

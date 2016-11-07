@@ -34,7 +34,6 @@ public class Main {
 		Persona per=new Persona("juan","alvarez",3);
 		return per;	
 	}
-	
 	@PUT
 	@Path("/enemy")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -43,7 +42,6 @@ public class Main {
 		Enemigo ene=new Enemigo(11,13,141,151,16);
 		return ene;
 	}
-	
 	@POST
 	@Path("/enemy2")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -52,7 +50,6 @@ public class Main {
 		Enemigo ene=new Enemigo(11,13,141,151,16);
 		return ene;
 	}
-	
 	@POST
 	@Path("/pobla")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -60,5 +57,23 @@ public class Main {
 	public Poblacion getPobla(Poblacion pobla){
 		pobla.genPobla();
 		return pobla;
+	}
+	
+	//Este metodo hace la mutacion y así
+	@POST
+	@Path("/poblacion")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Pobla getPoblacion(Peticion peticion){
+		if(peticion.isInicial()){
+			Pobla temp=new Pobla();
+			temp.genPobla(peticion.getCantidad());
+			return temp;
+		}
+		else{
+			Pobla muta=new Pobla();
+			muta.genMutacion(peticion.getEnem1(), peticion.getEnem2(), peticion.getEnem3(), peticion.getEnem4(), peticion.getCantidad());
+			return muta;
+		}
 	}
 }
