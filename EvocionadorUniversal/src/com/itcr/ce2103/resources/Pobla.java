@@ -91,5 +91,15 @@ public class Pobla {
 		}
 	}
 	
-	public Enemy[] getEne(){return this.ene;}
+	public Enemy[] getEne(){
+		for (int i = 0;i<this.ene.length;i++){
+			if (this.ene[i]==null){
+				this.ene[i]=new Enemy(8, 7, 5, 4, 8, 0);
+			}
+			else{
+				continue;
+			}
+		}
+		return this.ene;
+		}
 }

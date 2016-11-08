@@ -59,6 +59,15 @@ public class Main {
 		return pobla;
 	}
 	
+	@POST
+	@Path("/jeje")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Enemy thing(Enemy ene){
+		Enemy ene2=new Enemy(11,13,141,151,16,0);
+		return ene2;
+	}
+	
 	//Este metodo hace la mutacion y así
 	@POST
 	@Path("/poblacion")
