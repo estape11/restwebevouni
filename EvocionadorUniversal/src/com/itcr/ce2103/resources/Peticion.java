@@ -1,6 +1,9 @@
 package com.itcr.ce2103.resources;
 
+import java.util.LinkedList;
+
 public class Peticion {
+	public static LinkedList<String> poblaciones=new LinkedList<String>();
 	private int cantidad;
 	private Enemy enem1;
 	private Enemy enem2;
